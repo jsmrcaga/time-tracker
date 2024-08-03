@@ -8,9 +8,7 @@ labels: [
 
 # Define your projects here
 team_projects: &team_projects
-  - Project 1
-  - Project 2
-  - Project 3
+  
 
 body:
   - type: input
@@ -44,11 +42,57 @@ body:
     attributes:
       label: "Project"
       multiple: false
-      options: *team_projects
+      options: 
+        - Project 1
+        - Project 2
+        - Project 3
 
   - id: project_1_load
     type: input
     attributes:
       label: "Project"
       multiple: false
-      options: *team_projects
+      options:
+        - Project 1
+        - Project 2
+        - Project 3
+
+  - id: project_2_project
+    type: dropdown
+    attributes:
+      label: "Project"
+      multiple: false
+      options: 
+        - Project 1
+        - Project 2
+        - Project 3
+
+  - id: project_2_load
+    type: input
+    attributes:
+      label: "Project"
+      multiple: false
+      options:
+        - Project 1
+        - Project 2
+        - Project 3
+
+  - id: project_3_project
+    type: dropdown
+    attributes:
+      label: "Project"
+      multiple: false
+      options: 
+        - Project 1
+        - Project 2
+        - Project 3
+
+  - id: project_3_load
+    type: input
+    attributes:
+      label: "Project"
+      multiple: false
+      options:
+        - Project 1
+        - Project 2
+        - Project 3
