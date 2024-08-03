@@ -1,0 +1,26 @@
+name: Time submitted (issue created)
+
+on:
+  issues:
+    types:
+      - created
+
+jobs:
+  check_consistency:
+    runs-on: ubuntu-latest
+    name: Check Submission
+
+    steps:
+      - uses: actions/checkout@master
+      - run: npm run issue >> "$GITHUB_OUTPUT"
+        id: check
+        env:
+          EVENT_PATH: ${{ github.event_path }}
+
+      - run: gh issue comment "$NUMBER" --body "$BODY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          BODY: ${{ steps.check.outputs.error_body }}
+        if: ${{ failure() && steps.check.outputs.error_body }}
