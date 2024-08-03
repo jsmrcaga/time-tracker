@@ -1,0 +1,54 @@
+name: Copilot | Accounting - Weekly load
+description: Report weekly load for Copilot Accounting
+title: "Load Submission"
+labels: [
+  "weekly-load",
+  "Copilot | Accounting"
+]
+
+# Define your projects here
+team_projects: &team_projects
+  - Project 1
+  - Project 2
+  - Project 3
+
+body:
+  - type: input
+    id: date
+    attributes:
+      label: "Date (monday for weekly)"
+      description: "You can use the format dd/mm/yyyy or an ISO String"
+      placeholder: "05/08/2024"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: submission_type
+    attributes:
+      label: "Weekly or Daily submission"
+      description: "You can decide to submit a whole week, or daily"
+      options:
+        - label: "Weekly"
+        - label: "Daily"
+    validations:
+      required: true
+
+  - type: textarea
+    id: product_workshop_announcements
+    attributes:
+      label: "Anything to announce at the Product workshop?"
+
+  # Submission
+  - id: project_1_project
+    type: dropdown
+    attributes:
+      label: "Project"
+      multiple: false
+      options: *team_projects
+
+  - id: project_1_load
+    type: input
+    attributes:
+      label: "Project"
+      multiple: false
+      options: *team_projects
