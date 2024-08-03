@@ -6,12 +6,6 @@ labels: [
   "Copilot | Accounting"
 ]
 
-# Define your projects here
-team_projects: &team_projects
-  - Project 1
-  - Project 2
-  - Project 3
-
 body:
   - type: input
     id: date
@@ -22,14 +16,16 @@ body:
     validations:
       required: true
 
-  - type: checkboxes
+  - type: dropdown
     id: submission_type
     attributes:
       label: "Weekly or Daily submission"
       description: "You can decide to submit a whole week, or daily"
+      multiple: false
+      default: 0
       options:
-        - label: "Weekly"
-        - label: "Daily"
+        - "Weekly"
+        - "Daily"
     validations:
       required: true
 
@@ -39,16 +35,55 @@ body:
       label: "Anything to announce at the Product workshop?"
 
   # Submission
+  - id: support_load
+    type: input
+    attributes:
+      label: "Support Load"
+
   - id: project_1_project
     type: dropdown
     attributes:
       label: "Project"
       multiple: false
-      options: *team_projects
+      options: 
+        - Project 1
+        - Project 2
+        - Project 3
 
   - id: project_1_load
     type: input
     attributes:
+      label: "Load"
+      description: "In dev.days. Reminder, 1 dev.day = 5hrs"
+
+  - id: project_2_project
+    type: dropdown
+    attributes:
       label: "Project"
       multiple: false
-      options: *team_projects
+      options: 
+        - Project 1
+        - Project 2
+        - Project 3
+
+  - id: project_2_load
+    type: input
+    attributes:
+      label: "Load"
+      description: "In dev.days. Reminder, 1 dev.day = 5hrs"
+      
+  - id: project_3_project
+    type: dropdown
+    attributes:
+      label: "Project"
+      multiple: false
+      options: 
+        - Project 1
+        - Project 2
+        - Project 3
+
+  - id: project_3_load
+    type: input
+    attributes:
+      label: "Load"
+      description: "In dev.days. Reminder, 1 dev.day = 5hrs"
