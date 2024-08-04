@@ -66,7 +66,8 @@ class IssueParser {
 
 	static parse(markdown='') {
 		const parts = markdown.split('###').filter(e => e);
-		const answers = parts.map(part => part.split('\n\n').filter(e => e).map(e => e.trim()));
+		// on create the content is separated by \n\n, on edit it's \r\n
+		const answers = parts.map(part => part.split('\n').filter(e => e).map(e => e.trim()));
 
 		let [
 			[, date_input],
